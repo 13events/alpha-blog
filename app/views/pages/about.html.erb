@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<style>
+			h1 {
+				padding: 25px;
+				background-color: rgba(255,0,0,0.5);
+				text-align: center;
+				font-family: helvetica;
+			}
+			p {
+				padding 15px;
+				background-color: rgba(100,150,50,0.5);
+			}
+			.centeredImage {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+			}
+			.footer {
+				padding: 65px;
+				font-size: smaller;
+				font-weight: bold;
+				
+			}
+			.navigation{
+				font-family: helvetica;
+				padding-left: 25px;
+			}
+			a:link {
+				text-decoration:none;
+				color: black;
+			}
+			a:visited {
+				text-decoration: none;
+				color: black;
+			}
+		</style>
+		
+	<body style="background-color:powderblue">
+
+		<table>
+			<tr>
+				<th class="navigation"> <%= link_to 'Home', pages_home_path%> </th>
+				<th class="navigation"> <%= link_to 'About', pages_about_path %> </th>
+			</tr>
+		</table>
+
+		<h1>About</h1>
+
+		<img class="centeredImage" src="https://i.imgur.com/vhQLQBn.png" alt="debugging">
+		<p style="text-align:center">Debugging can often feel like a maddening maze of never ending loops.</p>
+
+	</body>
+</html>
