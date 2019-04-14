@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<style>
+			h1 {
+				padding: 25px;
+				background-color: rgba(255,0,0,0.5);
+				text-align: center;
+				font-family: helvetica;
+			}
+			p {
+				padding 15px;
+				background-color: rgba(100,150,50,0.5);
+			}
+			.centeredImage {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 70%
+			}
+			.footer {
+				padding: 65px;
+				font-size: smaller;
+				font-weight: bold;
+				
+			}
+			.navigation{
+				font-family: helvetica;
+				padding-left: 25px;
+			}
+			a:link {
+				text-decoration:none;
+				color: black;
+			}
+			a:visited {
+				text-decoration: none;
+				color: black;
+			}
+		</style>
+		
+	<body style="background-color:powderblue">
+
+		<table>
+			<tr>
+				<th class="navigation"> <%= link_to 'Home', root_path%> </th>
+				<th class="navigation"> <%= link_to 'About', about_path %> </th>
+			</tr>
+		</table>
+
+		<h1>About</h1>
+
+		<%= image_tag("joshuapath.jpg", class: "centeredImage") %>
+		<!---
+		<img class="centeredImage" src="https://i.imgur.com/vhQLQBn.png" alt="debugging">
+		--->
+		<p style="text-align:center">Since 1916, the National Park Service has 
+			been entrusted with the care of our national parks. With the help of 
+			volunteers and partners, we safeguard these special places and share 
+			their stories with more than 330 million visitors every year. But our 
+			work doesn't stop there. <br> <br>
+
+			We are proud that tribes, local governments, nonprofit organizations,
+			businesses, and individual citizens ask for our help in revitalizing 
+			their communities, preserving local history, celebrating local heritage,
+			and creating close to home opportunities for kids and families to get 
+			outside, be active, and have fun. Taking care of the national parks and 
+			helping Americans take care of their communities is a job we love, and we 
+			need—and welcome—your help and support.
+		</p>
+
+	</body>
+</html>

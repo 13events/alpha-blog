@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<style>
+		h1 {
+			padding: 25px;
+			background-color: rgba(255,0,0,0.5);
+		}
+		blockquote {
+			padding 15px;
+			background-color: rgba(100,150,50,0.5);
+		}
+		.centeredImage {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+		}
+		.footer {
+			padding: 65px;
+			font-size: smaller;
+			font-weight: bold;
+			
+		}
+		.navigation{
+			font-family: helvetica;
+			padding-left: 25px;
+		}
+		a:link {
+			text-decoration:none;
+			color: black;
+		}
+		a:visited {
+			text-decoration: none;
+			color: black;
+		}
+		image {
+
+		}
+	</style>
+
+	<body style="background-color:powderblue">
+
+		<table>
+			<tr>
+				<th class="navigation"> <%= link_to 'Home', root_path %> </th>
+				<th class="navigation"> <%= link_to 'About', about_path %> </th>
+				<th class="navigation"> <%= link_to 'Articles', articles_path %> </th>
+			</tr>
+		</table>
+
+
+		<h1 style="text-align:center; font-family:helvetica;">Welcome to Joshua Tree</h1>
+		
+		<%= link_to image_tag('yuccawithsun.jpg', size: "500x500", class: "centeredImage"), 'http://localhost:3000'%>
+		<!--- <img class="centeredImage" src="https://i.imgur.com/VuKnN5P.jpg" alt="Programming">
+					<figcaption style="text-align:center">Photo from https://i.imgur.com/VuKnN5P.jpg</figcaption>
+		--->
+		
+		<blockquote style="text-align:center">
+			There is a famous quote from explorer Lt. Joseph C. Ives where 
+			he describes his visit to that “profitless locality” and states 
+			that it “shall be forever unvisited”. He was talking about Grand 
+			Canyon. While some explorers gave moving descriptions of the 
+			American West, not all were so enamored with the nature and 
+			scenery they encountered. One of these explorers, John Freemont,
+			described Joshua Tree National Park’s namesake as “the most
+			repulsive tree in the vegetable kingdom.”
+		</blockquote>
+
+		<footer> 
+			<table>
+				<tr>
+					<td class="footer">Created: April 1st, 2019</td>
+					<td class="footer">Modified: April 2nd, 2019</td>
+					<td class="footer">Autho: Jose Martinez</td>
+				</tr>
+			</table>
+		</footer>
+
+
+
+	</body>
+
+
+<html>
