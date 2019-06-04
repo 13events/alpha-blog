@@ -1,3 +1,54 @@
+$navbar-default-bg: powderblue;
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
  
+#logo{
+	float: left;
+	font-size: 1.7em;
+	color: rgba(100,150,50,0.5);
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-weight: bold;
+} 
+
+#logo:hover {
+	color: rgba(255,0,0,0.5) ;
+	text-decoration: none;
+}
+
+.center {
+	text-align: center;
+}
+
+.jumbotron{
+	background-image: asset-url('yuccawithsun.jpeg');
+	background-size: cover;
+	height: 700px;
+}
+
+.jumbotron h1{
+	color: white;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: -3px;
+	font-weight: bold;
+}
+
+.jumbotron p {
+	background-color: rgba(55,55,55,0.8);
+	color:white;
+	text-align: center;
+}
+
+.btn-xlarge {
+	font-size: 1.7em;
+	color: white;
+}
+
+.btn-primary-green {
+	background-color: green;
+	color: powderblue;
+	border-color: white;
+}
