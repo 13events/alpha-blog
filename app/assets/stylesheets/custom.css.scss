@@ -1,3 +1,112 @@
+$navbar-default-bg: powderblue;
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
  
+// a:link {
+// 	text-decoration:none;
+// 	color: black;
+// }
+// a:visited {
+// 	text-decoration: none;
+// 	color: black;
+// }
+
+#logo{
+	float: left;
+	font-size: 1.7em;
+	color: rgba(10, 70, 236, 0.5);
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-weight: bold;
+} 
+
+#logo:hover {
+	color: rgba(255,0,0,0.5) ;
+	text-decoration: none;
+}
+
+.center {
+	text-align: center;
+}
+
+//set jumbotron styling
+.jumbotron{
+	background-image: asset-url('yuccawithsun.jpeg');
+	background-size: cover;
+	height: 700px;
+}
+
+
+.jumbotron h1{
+	color: white;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: -3px;
+	font-weight: bold;
+}
+
+.jumbotron p {
+	background-color: rgba(55,55,55,0.8);
+	color:white;
+	text-align: center;
+}
+
+.btn-xlarge {
+	font-size: 1.7em;
+	color: white;
+}
+
+.btn-primary-green {
+	background-color: green;
+	color: powderblue;
+	border-color: white;
+}
+
+// Set footer styling
+.footer{
+	margin-top: 1px;
+	padding-top: 1px;
+	border-top: 2px solid #eaeaea;
+	color: #777;
+
+	th {
+		padding-inline-end: 30px;
+	}
+}
+
+footer small {
+	float: right;
+	font-size: 10px;
+}
+
+footer a:hover {
+	color: rgba(255,0,0,0.5);
+
+}
+
+.article-actions {
+	border-top: 2px solid #eaeaea;
+	padding-top: 7px;
+
+}
+
+.article-title {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.article-description {
+	border-top: 1px solid #eaeaea;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+//set nav bar link color on hover
+.navbar .navbar-nav {
+	li {
+		a:hover{
+			color: rgba(255,0,0,0.5);
+		}
+	}
+}

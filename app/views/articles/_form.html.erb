@@ -1,28 +1,43 @@
-<% if @article.errors.any? %>
-<h2>The following errors prevented the article from being created.</h2>
-	<ul>
-		<% @article.errors.full_messages.each do |msg|%>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
 
-<%= form_for @article do |f| %>
+<%= render 'shared/errors', obj: @article %>
 
-	<p>
-		<%= f.label :title %> <br/>
-		<%= f.text_field :title %>
-	<p>
 
-	<p>
-		<%= f.label :description %> <br/>
-		<%= f.text_area :description %>
-	</p>
+<div class='row'>
+	<div class="col-sm-12">
+		<%= form_for @article, :html => {class: 'form-horizontal', rule: 'form'} do |f| %>
 
-	<p>
-		<%= f.submit %>
-	</p>
+			<!-- Title label and text field --->
+			<div class='form-group'>
+				<div class='col-sm-1 control-label'>
+					<%= f.label :title %>
+				</div>
+				<div class='col-xs-8 col-xs-offset-1'>
+					<%= f.text_field :title, class: 'form-control',
+						placeholder: "Article Title", autofocus: true %>
+				</div>
+			</div>
 
-<% end %> 
+			<!-- description label and text field. --->
+			<div class='form-group'>
+				<div class='col-xs-1 control-label'>
+					<%= f.label :description %>
+				</div>
+				<div class='col-xs-offset-1 col-xs-8 '>
+					<%= f.text_area :description, class: 'form-control',
+						placeholder: "Article Body",rows: 10 %>
+				</div>
+			</div>
 
-<%= link_to 'Back to articles listing', articles_path %>
+			<!--- Submit Button --->
+			<div class='form-group'>
+				<div class="col-xs-offset-2 col-xs-1">
+					<%= f.submit class: 'btn btn-primary btn-md'%>
+				</div>
+				<div class="col-xs-offset-9">
+					<%= link_to 'Cancel',articles_path, class: 'btn btn-md btn-secondary' %>
+				</div>
+			</div>
+
+			<% end %> 
+	</div>
+</div>	
