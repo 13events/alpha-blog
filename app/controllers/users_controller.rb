@@ -17,11 +17,26 @@ class UsersController < ApplicationController
     end
   end
 
+  # gets correct user using id parameter
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  # Used by edit action
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = 'Account Updated'
+      redirect_to articles_path
+    else
+      render 'edit'
+    end
+  end
+
   private
 
-    #white list parameters
+  # white list parameters
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
-
 end
