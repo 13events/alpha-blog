@@ -33,6 +33,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    # render plain: params.inspect
+  end
+
   private
 
   # white list parameters
