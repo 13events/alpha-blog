@@ -38,6 +38,9 @@ class UsersController < ApplicationController
     # render plain: params.inspect
   end
 
+  def index
+    @users = User.all
+  end
   private
 
   # white list parameters
