@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# handle article actions
 class ArticlesController < ApplicationController
   # Call the 'set_article' method before performing the follwing actions
   before_action :set_article, only: %i[edit update show destroy]
