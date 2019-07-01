@@ -1,0 +1,15 @@
+<h1 align='center'> Welcome to <%= "#{@user.username}" %>'s Page </h1>
+
+<div class='row'>
+  <div class='col-xs-4 col-xs-offset-4 center'>
+    <%= gravatar_for(@user, size: 100) %>
+  </div>
+</div>
+<h4 align='center'> <%= @user.username%>'s articles</h4>
+<div class='center'>
+  <%= will_paginate @user_articles %>
+</div>
+<%=  render 'articles/article', obj: @user_articles %>
+<div class='center'>
+  <%= will_paginate @user_articles %>
+</div>

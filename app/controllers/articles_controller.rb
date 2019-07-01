@@ -1,68 +1,72 @@
+# frozen_string_literal: true
+
+# handle article actions
 class ArticlesController < ApplicationController
+  # Call the 'set_article' method before performing the follwing actions
+  before_action :set_article, only: %i[edit update show destroy]
+  before_action :require_user, except: %i[index show]
+  before_action :require_same_user, only: %i[edit update]
 
-	#Call the 'set_article' method before performing the follwing actions
-	before_action :set_article, only: [:edit, :update, :show, :destroy]
+  def index
+    # grab all articles from database
+    @articles = Article.paginate(page: params[:page], per_page: 2)
+  end
 
-	def index
-		#grab all articles from database
-		@articles = Article.all
-	end
-	def new
-		@article = Article.new
-	end
+  def new
+    @article = Article.new
+  end
 
-	def edit
-		
-	end
+  def edit; end
 
-	def update
+  def update
+    if @article.update(article_params)
+      flash[:success] = 'Article Successfully Updated'
+      redirect_to article_path(@article)
+    else
+      render 'edit'
+    end
+  end
 
-		if @article.update(article_params)
-			flash[:success] = "Article Successfully Updated"
-			redirect_to article_path(@article)
-		else
-			render 'edit'
-		end
+  def create
+    # render plain: params[:article].inspect
+    @article = Article.new(article_params)
+    @article.user = current_user
+    # check and handle failed article save
+    if @article.save
+      flash[:success] = 'Article Successfully Created'
+      redirect_to article_path(@article)
+    else
+      render 'new'
+    end
+  end
 
-	end
+  def show; end
 
-	def create
-		#render plain: params[:article].inspect
-		@article = Article.new(article_params)
-		
-		#check and handle failed article save
-		if @article.save
-			flash[:success] = "Article Successfully Created"
-			redirect_to article_path(@article)
-		else 
-			render 'new'
-		end
-	end
+  def destroy
+    # destroy the article
+    @article.destroy
 
-	def show
-		
-	end
+    # flash message
+    flash[:danger] = 'Article Successfully deleted.'
 
-	def destroy
+    # redirect to articles index page
+    redirect_to articles_path
+  end
 
-		 #destroy the article
-		 @article.destroy
+  private
 
-		 #flash message
-		 flash[:danger] = "Article Successfully deleted."
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-		 #redirect to articles index page
-		 redirect_to articles_path
-	end
+  def article_params
+    params.require(:article).permit(:title, :description)
+  end
 
-	private 
-
-	def set_article
-		@article = Article.find(params[:id])
-	end
-
-	def article_params
-		params.require(:article).permit(:title, :description)
-	end
+  def require_same_user
+    if current_user != @article.user
+      flash[:danger] = "You can only edit or delete your own articles."
+      redirect_to root_path
+    end
+  end
 end
- 
