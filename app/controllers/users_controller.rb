@@ -3,8 +3,8 @@
 # Handle User actions
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update show]
-  before_action :require_same_user, only: %i[edit update]
-
+  before_action :require_same_user, only: %i[edit update destroy]
+  before_action :require_admin, only: %i[destroy]
   def new
     @user = User.new
   end
@@ -44,6 +44,17 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 2)
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if current_user != @user
+      @user.destroy
+      flash[:danger] = 'User and all associated articles have been delete!'
+      else
+      flash[:danger] = 'You can not delete yourself!'
+    end
+    redirect_to(users_path)
+  end
+
   private
 
   # white list parameters
@@ -56,9 +67,16 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @user
-      flash[:danger] = "You can only edit your own account."
+    if current_user != @user && !current_user.admin?
+      flash[:danger] = 'You can only edit your own account.'
       redirect_to root_path
+    end
+  end
+
+  def require_admin
+    if logged_in? && !current_user.admin?
+      flash[:danger] = 'You need to have admin privileges to perform that action.'
+      redirect_to(users_path)
     end
   end
 end
