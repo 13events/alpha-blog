@@ -1,3 +1,7 @@
-This is the repository for the first alpha-blog app of the Complete Ruby on Rails Developer Course. 
+### Alpha-Blog
 
-Pushed to heroku 6/30/19
+## Summary 
+  Personal Project exploring website creation using Ruby on Rails.
+  Supports all CRUD functionality for databases needed to run website.
+  Bootstrap 3.3.7 for page UI.
+  
